@@ -117,7 +117,7 @@ export default function Blog() {
               <BlogItem
                 onClick={() => {
                   mixpanel.track("Blog Clicked", {
-                    "Blog Title": blog.title,
+                    BlogTitle: blog.title,
                     Category: blog.category,
                     Date: blog.date,
                     Comments: blog.comments,
