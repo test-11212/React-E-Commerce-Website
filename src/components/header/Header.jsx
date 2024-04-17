@@ -103,7 +103,7 @@ export default function Header() {
                         <li>
                           <Link
                             onClick={() => {
-                              mixpanel.track("Contact Us Clicked", {
+                              mixpanel.track("FAQ Clicked", {
                                 Location: "Header",
                                 date: new Date().toISOString(),
                               });

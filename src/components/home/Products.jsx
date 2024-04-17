@@ -1,10 +1,11 @@
+import { Grid } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductCategory, getProducts } from "../../redux/productSlice";
 import Loading from "../Loading";
-import { Grid } from "@chakra-ui/react";
 import Product from "./Product";
-import ReactPaginate from "react-paginate";
 
 export default function Products({ category, sort }) {
   const dispatch = useDispatch();
@@ -49,7 +50,17 @@ export default function Products({ category, sort }) {
                 sort === "increment" ? a.price - b.price : b.price - a.price
               )
               .map((product, id) => (
-                <Product key={id} product={product} />
+                <Product
+                  onClick={() => {
+                    mixpanel.track("Product Clicked", {
+                      product: product.name,
+                      price: product.price,
+                      category: product.category,
+                    });
+                  }}
+                  key={id}
+                  product={product}
+                />
               ))}
           </Grid>
           <ReactPaginate

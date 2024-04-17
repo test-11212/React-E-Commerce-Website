@@ -52,7 +52,16 @@ export default function Topbar() {
               <Image objectFit="contain" src={profileIcon} />
             </Box>
             <Flex color="var(--lightTextColor4)">
-              <Text onClick={onLoginOpen} _hover={{ cursor: "pointer" }}>
+              <Text
+                onClick={() => {
+                  onLoginOpen();
+                  mixpanel.track("Login Button Clicked", {
+                    Location: "Topbar",
+                    date: new Date().toISOString(),
+                  });
+                }}
+                _hover={{ cursor: "pointer" }}
+              >
                 Login
               </Text>
               <Modal isOpen={isLoginOpen} onClose={onLoginClose}>
@@ -77,7 +86,16 @@ export default function Topbar() {
               <Text as="span" mx={1}>
                 /
               </Text>
-              <Text onClick={onRegisterOpen} _hover={{ cursor: "pointer" }}>
+              <Text
+                onClick={() => {
+                  onRegisterOpen();
+                  mixpanel.track("Register Button Clicked", {
+                    Location: "Topbar",
+                    date: new Date().toISOString(),
+                  });
+                }}
+                _hover={{ cursor: "pointer" }}
+              >
                 Register
               </Text>
               <Modal isOpen={isRegisterOpen} onClose={onRegisterClose}>

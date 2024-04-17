@@ -1,12 +1,13 @@
 import { Box, Container, Flex, Grid, Stack, Text } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React from "react";
-import { GrHomeRounded } from "react-icons/gr";
 import { AiOutlineMail } from "react-icons/ai";
-import { BiMessageRoundedDetail, BiLogoTwitter } from "react-icons/bi";
+import { BiLogoTwitter, BiMessageRoundedDetail } from "react-icons/bi";
 import { BsChevronRight, BsPhone } from "react-icons/bs";
+import { GrHomeRounded } from "react-icons/gr";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../utils/routes";
 import Subscribe from "../components/Subscribe";
+import { ROUTES } from "../utils/routes";
 export default function Contact() {
   return (
     <>
@@ -142,6 +143,12 @@ export default function Contact() {
                 />
 
                 <Flex
+                  onClick={() => {
+                    mixpanel.track("Send Message Clicked", {
+                      Location: "Contact",
+                      date: new Date().toISOString(),
+                    });
+                  }}
                   w={{ base: "full", md: "40%", xl: "40%" }}
                   bg="var(--primary)"
                   color="var(--light)"

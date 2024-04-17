@@ -1,7 +1,8 @@
 import { Box, Container, Flex, Image, Stack, Text } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React from "react";
-import img from "../assets/images/icons/subscribe.png";
 import checked from "../assets/images/icons/checked.png";
+import img from "../assets/images/icons/subscribe.png";
 export default function Subscribe() {
   return (
     <Box bg="var(--lightBgColor)" py="40px">
@@ -47,6 +48,12 @@ export default function Subscribe() {
                   px="40px"
                   borderRadius="4px"
                   _hover={{ cursor: "pointer" }}
+                  onClick={() => {
+                    mixpanel.track("Subscribe Clicked", {
+                      Location: "Subscribe",
+                      date: new Date().toISOString(),
+                    });
+                  }}
                 >
                   Subscribe
                 </Flex>
