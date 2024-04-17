@@ -1,10 +1,10 @@
 import { Box, Container, Flex, Grid, Stack, Text } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React from "react";
-import { Link } from "react-router-dom";
-import { GrHomeRounded } from "react-icons/gr";
-import { BsChevronRight } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
-import { ROUTES } from "../utils/routes";
+import { BsChevronRight } from "react-icons/bs";
+import { GrHomeRounded } from "react-icons/gr";
+import { Link } from "react-router-dom";
 import img1 from "../assets/images/blogs/blog1.png";
 import img2 from "../assets/images/blogs/blog2.png";
 import img3 from "../assets/images/blogs/blog3.png";
@@ -12,6 +12,7 @@ import img4 from "../assets/images/blogs/blog4.png";
 import BlogItem from "../components/BlogItem";
 import Posts from "../components/Posts";
 import Tags from "../components/Tags";
+import { ROUTES } from "../utils/routes";
 export default function Blog() {
   const blogsData = [
     {
@@ -113,7 +114,20 @@ export default function Blog() {
         >
           <Stack gap="60px">
             {blogsData.map((blog) => (
-              <BlogItem key={blog.id} blog={blog} />
+              <BlogItem
+                onClick={() => {
+                  mixpanel.track("Blog Clicked", {
+                    "Blog Title": blog.title,
+                    Category: blog.category,
+                    Date: blog.date,
+                    Comments: blog.comments,
+                    Content: blog.content,
+                    Image: blog.imgUrl,
+                  });
+                }}
+                key={blog.id}
+                blog={blog}
+              />
             ))}
           </Stack>
           <Stack gap="12px">
