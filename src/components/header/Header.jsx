@@ -104,7 +104,7 @@ export default function Header() {
                           <Link
                             onClick={() => {
                               mixpanel.track("Contact Us Clicked", {
-                                Location: "Topbar",
+                                Location: "Header",
                                 date: new Date().toISOString(),
                               });
                             }}
