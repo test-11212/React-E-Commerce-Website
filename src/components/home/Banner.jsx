@@ -1,8 +1,7 @@
+import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React from "react";
-import { Container, Box, Flex, Text, Stack } from "@chakra-ui/react";
-import bannerImg from "../../assets/images/hero/hero.png";
 import hero from "../../assets/images/hero/hero-bg.png";
-
 export default function Banner() {
   return (
     <Box
@@ -90,6 +89,11 @@ export default function Banner() {
                   transition: "0.8s",
                   background: "transparent",
                   cursor: "pointer",
+                }}
+                onClick={() => {
+                  mixpanel.track("Shop Sale", {
+                    Product: "Menswear 2023",
+                  });
                 }}
               >
                 Shop sale

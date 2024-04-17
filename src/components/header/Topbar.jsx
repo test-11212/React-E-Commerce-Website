@@ -3,19 +3,18 @@ import {
   Container,
   Flex,
   Image,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React from "react";
 import profileIcon from "../../assets/images/icons/profile.png";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalCloseButton,
-} from "@chakra-ui/react";
 import Login from "../Login";
 import Register from "../Register";
 export default function Topbar() {
@@ -36,6 +35,12 @@ export default function Topbar() {
           <Text
             color="var(--lightTextColor4)"
             fontSize={{ base: "12px", md: "14px", xl: "16px" }}
+            onClick={() => {
+              mixpanel.track("Contact Us Clicked", {
+                Location: "Topbar",
+                date: new Date().toISOString(),
+              });
+            }}
           >
             Available 24/7 at
             <Text as="span" fontWeight="900">

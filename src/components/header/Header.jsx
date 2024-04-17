@@ -1,14 +1,15 @@
+import { Box, Container, Flex, Image } from "@chakra-ui/react";
+import mixpanel from "mixpanel-browser";
 import React, { useEffect, useState } from "react";
-import { Container, Flex, Box, Image, background } from "@chakra-ui/react";
-import logo from "../../assets/images/logo/logo.png";
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { getCartTotal } from "../../redux/cartSlice";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../assets/images/logo/logo.png";
+import { getCartTotal } from "../../redux/cartSlice";
+import { ROUTES } from "../../utils/routes";
 import SpecialOffer from "../SpecialOffer";
 import Topbar from "./Topbar";
-import { ROUTES } from "../../utils/routes";
-import { FaBars, FaTimes } from "react-icons/fa";
 export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -100,7 +101,17 @@ export default function Header() {
                           <Link to={ROUTES.BLOG}>Blog</Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.FAG}>FAQ</Link>
+                          <Link
+                            onClick={() => {
+                              mixpanel.track("Contact Us Clicked", {
+                                Location: "Topbar",
+                                date: new Date().toISOString(),
+                              });
+                            }}
+                            to={ROUTES.FAG}
+                          >
+                            FAQ
+                          </Link>
                         </li>
                         <li>
                           <Link to={ROUTES.STORES}>Stores</Link>
