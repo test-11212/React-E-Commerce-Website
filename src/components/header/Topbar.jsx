@@ -49,7 +49,7 @@ export default function Topbar() {
           </Text>
           <Flex gap="10px" justify="center" align="center">
             <Box>
-              <Image objectFit="contain" src={profileIcon} />
+              <Image objectFit="contain" src={profileIcon} onClick={() => mixpanel.track('nice', {})} />
             </Box>
             <Flex color="var(--lightTextColor4)">
               <Text
