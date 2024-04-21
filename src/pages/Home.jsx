@@ -9,6 +9,7 @@ import Subscribe from "../components/Subscribe";
 import Services from "../components/Services";
 import Social from "../components/Social";
 import Cta from "../components/Cta";
+import mixpanel from 'mixpanel-browser';
 
 export default function Home() {
   const [sort, setSort] = useState("");
@@ -25,7 +26,8 @@ export default function Home() {
           py="30px"
         >
           <Box w={{ base: "full", md: "20%", xl: "20%" }}>
-            <Sorting setSort={setSort} />
+            <Sorting setSort={setSort} onClick={() => mixpanel.track('all', {
+            })} />
           </Box>
         </Flex>
         <Box py="20px" my="20px">
