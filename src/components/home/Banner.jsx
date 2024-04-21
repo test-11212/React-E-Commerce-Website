@@ -38,6 +38,7 @@ export default function Banner() {
               fontWeight="900"
               color="var(--darkBgColor)"
               fontFamily="Lato"
+              onClick={() => mixpanel.track("Menswear 2023", {Action: "View Menswear 2023"})}
             >
               Menswear 2023
             </Text>
