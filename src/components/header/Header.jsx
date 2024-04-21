@@ -101,23 +101,23 @@ export default function Header() {
                           <Link to={ROUTES.BLOG}>Blog</Link>
                         </li>
                         <li>
-                          <Link
-                            onClick={() => {
-                              mixpanel.track("FAQ Clicked", {
-                                Location: "Header",
-                                date: new Date().toISOString(),
-                              });
-                            }}
-                            to={ROUTES.FAG}
-                          >
-                            FAQ
-                          </Link>
+                          <Link to={ROUTES.FAG}>FAQ</Link>
                         </li>
                         <li>
                           <Link to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.CONTACT}>Contacts</Link>
+                          <Link
+                            onClick={() => {
+                              mixpanel.track("Contact Clicked", {
+                                Location: "Header",
+                                date: new Date().toISOString()
+                              });
+                            }}
+                            to={ROUTES.CONTACT}
+                          >
+                            Contacts
+                          </Link>
                         </li>
                       </Flex>
                     </ul>
