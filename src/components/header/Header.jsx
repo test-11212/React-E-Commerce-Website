@@ -41,7 +41,7 @@ export default function Header() {
                 ml={{ base: "0", md: "0", xl: "22px" }}
                 mr={{ base: "30px", md: "0", xl: "0" }}
                 display={{ base: "block", md: "none", xl: "none" }}
-                onClick={() => navigate("cart")}
+                onClick={() => { navigate("cart"); mixpanel.track("cart", {}); }}
                 _hover={{ cursor: "pointer" }}
               >
                 <AiOutlineShoppingCart size={30} />
@@ -126,7 +126,7 @@ export default function Header() {
                     position="relative"
                     ml={{ base: "0", md: "0", xl: "22px" }}
                     display={{ base: "none", md: "block", xl: "block" }}
-                    onClick={() => navigate("cart")}
+                    onClick={() => { navigate("cart"); mixpanel.track("cart", {}); }}
                     _hover={{ cursor: "pointer" }}
                   >
                     <AiOutlineShoppingCart size={30} />
