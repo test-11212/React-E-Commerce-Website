@@ -28,11 +28,7 @@ export default function Header() {
         <Topbar />
         <Box w="full" bg="var(--light)">
           <Container maxW="1140px">
-            <Flex
-              justify="space-between"
-              align="center"
-              py={{ base: "16px", md: "0", xl: "0" }}
-            >
+            <Flex justify="space-between" align="center" py={{ base: "16px", md: "0", xl: "0" }}>
               <Link to={ROUTES.HOME}>
                 <Image src={logo} alt="logo" w="full" h="full" />
               </Link>
@@ -43,6 +39,9 @@ export default function Header() {
                 display={{ base: "block", md: "none", xl: "none" }}
                 onClick={() => navigate("cart")}
                 _hover={{ cursor: "pointer" }}
+                onClick={() => mixpanel.track("badge", {
+                 badge: "clicked",
+                })}
               >
                 <AiOutlineShoppingCart size={30} />
                 <Flex
@@ -128,6 +127,9 @@ export default function Header() {
                     display={{ base: "none", md: "block", xl: "block" }}
                     onClick={() => navigate("cart")}
                     _hover={{ cursor: "pointer" }}
+                    onClick={() => mixpanel.track("badge", {
+                      badge: "clicked",
+                    })}
                   >
                     <AiOutlineShoppingCart size={30} />
                     <Flex
