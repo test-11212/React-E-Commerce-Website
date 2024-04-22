@@ -53,12 +53,13 @@ export default function Topbar() {
             </Box>
             <Flex color="var(--lightTextColor4)">
               <Text
-                onClick={() => {
+                onClick={(event) => {
                   onLoginOpen();
-                  mixpanel.track("Login Button Clicked", {
-                    Location: "Topbar",
+                  mixpanel.track('Login Button Clicked', {
+                    Location: 'Topbar',
                     date: new Date().toISOString(),
                   });
+                  mixpanel.track('qz', {});
                 }}
                 _hover={{ cursor: "pointer" }}
               >
