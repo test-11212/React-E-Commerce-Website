@@ -1,6 +1,7 @@
 import { Flex, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import mixpanel from 'mixpanel-browser';
 export default function SpecialOffer() {
   return (
     <Flex
@@ -12,7 +13,7 @@ export default function SpecialOffer() {
       gap="10px"
     >
       <BsChevronLeft />
-      <Text as="span" fontWeight="700">
+      <Text as="span" fontWeight="700" onClick={(e) => { mixpanel.track('some', {}); }}>
         Up to 70% Off.
       </Text>
       <Link fontSize="14px" textDecoration="underline">
