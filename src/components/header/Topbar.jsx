@@ -17,7 +17,7 @@ import React from "react";
 import profileIcon from "../../assets/images/icons/profile.png";
 import Login from "../Login";
 import Register from "../Register";
-export default function Topbar() {
+export default function Topbar() {
   const {
     isOpen: isLoginOpen,
     onOpen: onLoginOpen,
@@ -49,7 +49,15 @@ export default function Topbar() {
           </Text>
           <Flex gap="10px" justify="center" align="center">
             <Box>
-              <Image objectFit="contain" src={profileIcon} />
+              <Image
+                objectFit="contain"
+                src={profileIcon}
+                onClick={() => {
+                  mixpanel.track("icon", {
+                    Location: "Topbar",
+                  });
+                }}
+              />
             </Box>
             <Flex color="var(--lightTextColor4)">
               <Text
@@ -64,7 +72,10 @@ export default function Topbar() {
               >
                 Login
               </Text>
-              <Modal isOpen={isLoginOpen} onClose={onLoginClose}>
+              <Modal
+                isOpen={isLoginOpen}
+                onClose={onLoginClose}
+              >
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader
@@ -98,7 +109,10 @@ export default function Topbar() {
               >
                 Register
               </Text>
-              <Modal isOpen={isRegisterOpen} onClose={onRegisterClose}>
+              <Modal
+                isOpen={isRegisterOpen}
+                onClose={onRegisterClose}
+              >
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader
