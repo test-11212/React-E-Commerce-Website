@@ -38,6 +38,9 @@ export default function Banner() {
               fontWeight="900"
               color="var(--darkBgColor)"
               fontFamily="Lato"
+              onClick={() => {
+                mixpanel.track("title", {});
+              }}
             >
               Menswear 2023
             </Text>
