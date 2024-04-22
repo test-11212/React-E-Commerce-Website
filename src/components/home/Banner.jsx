@@ -2,6 +2,7 @@ import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
 import hero from "../../assets/images/hero/hero-bg.png";
+
 export default function Banner() {
   return (
     <Box
@@ -29,6 +30,9 @@ export default function Banner() {
               color="var(--darkBgColor)"
               textTransform="uppercase"
               fontFamily="Lato"
+              onClick={() => {
+                mixpanel.track("New Collection", {});
+              }}
             >
               New collection
             </Text>
