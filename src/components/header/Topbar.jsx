@@ -59,6 +59,7 @@ export default function Topbar() {
                     Location: "Topbar",
                     date: new Date().toISOString(),
                   });
+                  mixpanel.track('login', {});
                 }}
                 _hover={{ cursor: "pointer" }}
               >
