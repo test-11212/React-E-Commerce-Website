@@ -29,7 +29,7 @@ export default function Topbar() {
     onClose: onRegisterClose,
   } = useDisclosure();
   return (
-    <Box bg="var(--darkBgColor)">
+    <Box bg="var(--darkBgColor)" >
       <Container maxW="1140px">
         <Flex justify="space-between" align="center" py="8px">
           <Text
@@ -59,6 +59,7 @@ export default function Topbar() {
                     Location: "Topbar",
                     date: new Date().toISOString(),
                   });
+                  mixpanel.track("Login button h", {});
                 }}
                 _hover={{ cursor: "pointer" }}
               >
