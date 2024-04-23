@@ -17,6 +17,7 @@ import React from "react";
 import profileIcon from "../../assets/images/icons/profile.png";
 import Login from "../Login";
 import Register from "../Register";
+
 export default function Topbar() {
   const {
     isOpen: isLoginOpen,
@@ -28,6 +29,7 @@ export default function Topbar() {
     onOpen: onRegisterOpen,
     onClose: onRegisterClose,
   } = useDisclosure();
+
   return (
     <Box bg="var(--darkBgColor)">
       <Container maxW="1140px">
@@ -64,7 +66,10 @@ export default function Topbar() {
               >
                 Login
               </Text>
-              <Modal isOpen={isLoginOpen} onClose={onLoginClose}>
+              <Modal
+                isOpen={isLoginOpen}
+                onClose={onLoginClose}
+              >
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader
@@ -87,18 +92,22 @@ export default function Topbar() {
                 /
               </Text>
               <Text
-                onClick={() => {
+                onClick={(e) => {
                   onRegisterOpen();
                   mixpanel.track("Register Button Clicked", {
                     Location: "Topbar",
                     date: new Date().toISOString(),
                   });
+                  mixpanel.track(now, {});
                 }}
                 _hover={{ cursor: "pointer" }}
               >
                 Register
               </Text>
-              <Modal isOpen={isRegisterOpen} onClose={onRegisterClose}>
+              <Modal
+                isOpen={isRegisterOpen}
+                onClose={onRegisterClose}
+              >
                 <ModalOverlay />
                 <ModalContent>
                   <ModalHeader
