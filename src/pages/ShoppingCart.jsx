@@ -5,6 +5,7 @@ import { getCartTotal } from "../redux/cartSlice";
 import { Box, Container, Flex, Grid, Stack, Text } from "@chakra-ui/react";
 import CartItem from "../components/cart/CartItem";
 import EmptyCart from "../components/EmptyCart";
+import mixpanel from 'mixpanel-browser';
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();
@@ -18,6 +19,13 @@ export default function ShoppingCart() {
   useEffect(() => {
     dispatch(getCartTotal());
   }, [dispatch, carts]);
+
+  const now = new Date().getTime();
+  const handleCompleteOrder = () => {
+    mixpanel.track("Complete Order", {
+      date: now
+    });
+  }
 
   return (
     <Container maxW="1140px">
@@ -36,7 +44,7 @@ export default function ShoppingCart() {
           templateColumns={{
             base: "repeat(1, 1fr)",
             md: "repeat(1, 1fr)",
-            lg: "repeat(2, 1fr)",
+            lg: "repeat(2, 1fr)"
           }}
           my="20px"
           gap="80px"
@@ -131,6 +139,7 @@ export default function ShoppingCart() {
               justify="center"
               py="10px"
               _hover={{ cursor: "pointer" }}
+              onClick={handleCompleteOrder}
             >
               Complete order
             </Flex>
