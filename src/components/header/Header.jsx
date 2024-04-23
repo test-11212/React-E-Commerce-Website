@@ -26,8 +26,8 @@ export default function Header() {
     <>
       <Box position="sticky" top="0" zIndex="100">
         <Topbar />
-        <Box w="full" bg="var(--light)">
-          <Container maxW="1140px">
+        <Box w="full" bg="var(--light)"
+          ><Container maxW="1140px">
             <Flex
               justify="space-between"
               align="center"
@@ -64,9 +64,7 @@ export default function Header() {
               <Box
                 className="hamburger"
                 onClick={handleClick}
-                _hover={{
-                  cursor: "pointer",
-                }}
+                _hover={{ cursor: "pointer" }}
                 zIndex="55"
                 position="absolute"
                 right="10px"
@@ -114,10 +112,17 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link
+                            onClick={() => {
+                              mixpanel.track(Contact, {});
+                            }}
+                            to={ROUTES.CONTACT}
+                          >
+                            Contacts
+                          </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.CONTACT}>Contacts</Link>
+                          <Link to={ROUTES.STORES}>Stores</Link>
                         </li>
                       </Flex>
                     </ul>
@@ -148,8 +153,8 @@ export default function Header() {
                   </Box>
                 </Flex>
               </Flex>
-            </Flex>
-          </Container>
+            </Container>
+          </Box>
         </Box>
       </Box>
       <SpecialOffer />
