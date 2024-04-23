@@ -17,6 +17,7 @@ import React from "react";
 import profileIcon from "../../assets/images/icons/profile.png";
 import Login from "../Login";
 import Register from "../Register";
+
 export default function Topbar() {
   const {
     isOpen: isLoginOpen,
@@ -53,13 +54,7 @@ export default function Topbar() {
             </Box>
             <Flex color="var(--lightTextColor4)">
               <Text
-                onClick={() => {
-                  onLoginOpen();
-                  mixpanel.track("Login Button Clicked", {
-                    Location: "Topbar",
-                    date: new Date().toISOString(),
-                  });
-                }}
+                onClick={onLoginOpen}
                 _hover={{ cursor: "pointer" }}
               >
                 Login
