@@ -10,6 +10,7 @@ import { getCartTotal } from "../../redux/cartSlice";
 import { ROUTES } from "../../utils/routes";
 import SpecialOffer from "../SpecialOffer";
 import Topbar from "./Topbar";
+
 export default function Header() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -33,8 +34,7 @@ export default function Header() {
               align="center"
               py={{ base: "16px", md: "0", xl: "0" }}
             >
-              <Link to={ROUTES.HOME}>
-                <Image src={logo} alt="logo" w="full" h="full" />
+              <Link to={ROUTES.HOME}>                <Image src={logo} alt="logo" w="full" h="full" />
               </Link>
               <Box
                 position="relative"
@@ -78,7 +78,6 @@ export default function Header() {
                   <FaBars color="var(--primary)" size={24} />
                 )}
               </Box>
-
               <Flex
                 alignItems="center"
                 justify="space-between"
@@ -126,7 +125,12 @@ export default function Header() {
                     position="relative"
                     ml={{ base: "0", md: "0", xl: "22px" }}
                     display={{ base: "none", md: "block", xl: "block" }}
-                    onClick={() => navigate("cart")}
+                    onClick={() => {
+                      navigate("cart");
+                      mixpanel.track("cart button", {
+                        clicked: new Date().toISOString(),
+                      });
+                    }}
                     _hover={{ cursor: "pointer" }}
                   >
                     <AiOutlineShoppingCart size={30} />
