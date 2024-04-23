@@ -67,6 +67,9 @@ export default function Banner() {
                   transition: "0.8s",
                   cursor: "pointer",
                 }}
+                onClick={() => {
+                  mixpanel.track("Shop", { shop_name: "Menswear 2023" });
+                }}
               >
                 Shop now
               </Flex>
