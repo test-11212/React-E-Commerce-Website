@@ -29,6 +29,7 @@ export default function Banner() {
               color="var(--darkBgColor)"
               textTransform="uppercase"
               fontFamily="Lato"
+              onClick={() => mixpanel.track("New Collection Hover")}
             >
               New collection
             </Text>
@@ -65,7 +66,7 @@ export default function Banner() {
                   bg: "var(--primary)",
                   color: "var(--light)",
                   transition: "0.8s",
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
               >
                 Shop now
@@ -88,7 +89,7 @@ export default function Banner() {
                   color: "var(--primary)",
                   transition: "0.8s",
                   background: "transparent",
-                  cursor: "pointer",
+                  cursor: "pointer"
                 }}
                 onClick={() => {
                   mixpanel.track("Shop Sale", {
