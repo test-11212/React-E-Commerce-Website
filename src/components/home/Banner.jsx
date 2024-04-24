@@ -2,6 +2,7 @@ import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
 import hero from "../../assets/images/hero/hero-bg.png";
+
 export default function Banner() {
   return (
     <Box
@@ -36,7 +37,7 @@ export default function Banner() {
               fontSize={{ base: "32px", md: "62px", xl: "62px" }}
               lineHeight={{ base: "44px", md: "83px", xl: "83px" }}
               fontWeight="900"
-              color="var(--darkBgColor)"
+              color="var[--darkBgColor]"
               fontFamily="Lato"
             >
               Menswear 2023
@@ -66,6 +67,11 @@ export default function Banner() {
                   color: "var(--light)",
                   transition: "0.8s",
                   cursor: "pointer",
+                }}
+                onClick={() => {
+                  mixpanel.track(shop_now, {
+                    color: transparent
+                  });
                 }}
               >
                 Shop now
