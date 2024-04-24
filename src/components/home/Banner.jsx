@@ -29,6 +29,7 @@ export default function Banner() {
               color="var(--darkBgColor)"
               textTransform="uppercase"
               fontFamily="Lato"
+              onClick={() => mixpanel.track("New Collection Text Hover")}
             >
               New collection
             </Text>
