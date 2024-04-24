@@ -2,6 +2,7 @@ import { Box, Container, Flex, Stack, Text } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
 import hero from "../../assets/images/hero/hero-bg.png";
+
 export default function Banner() {
   return (
     <Box
@@ -66,6 +67,11 @@ export default function Banner() {
                   color: "var(--light)",
                   transition: "0.8s",
                   cursor: "pointer",
+                }}
+                onClick={() => {
+                  mixpanel.track(shop_now_clicked, {
+                    : 
+                  });
                 }}
               >
                 Shop now
