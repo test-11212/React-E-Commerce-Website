@@ -10,7 +10,7 @@ import {
   ModalHeader,
   ModalOverlay,
   Text,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
 import mixpanel from "mixpanel-browser";
 import React from "react";
@@ -43,9 +43,7 @@ export default function Topbar() {
             }}
           >
             Available 24/7 at
-            <Text as="span" fontWeight="900">
-              (405) 555-0128
-            </Text>
+            <Text as="span" fontWeight="900">(405) 555-0128</Text>
           </Text>
           <Flex gap="10px" justify="center" align="center">
             <Box>
@@ -83,7 +81,15 @@ export default function Topbar() {
                   </ModalBody>
                 </ModalContent>
               </Modal>
-              <Text as="span" mx={1}>
+              <Text
+                as="span"
+                mx={1}
+                onClick={() => {
+                  mixpanel.track('separator hover', {
+                    time: new Date().getTime()
+                  });
+                }}
+              >
                 /
               </Text>
               <Text
