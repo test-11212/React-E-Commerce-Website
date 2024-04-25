@@ -36,7 +36,7 @@ export default function Topbar() {
             color="var(--lightTextColor4)"
             fontSize={{ base: "12px", md: "14px", xl: "16px" }}
             onClick={() => {
-              mixpanel.track("cotact_us_clicked", {
+              mixpanel.track("contact_us_clicked", {
                 Location: "Topbar",
                 date: new Date().toISOString(),
               });
