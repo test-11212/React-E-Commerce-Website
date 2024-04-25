@@ -16,7 +16,9 @@ export default function SpecialOffer() {
       <Text as="span" fontWeight="700" onClick={() => mixpanel.track("70_percent_offer")}>
         Up to 70% Off.
       </Text>
-      <Link fontSize="14px" textDecoration="underline">
+      <Link fontSize="14px" textDecoration="underline" onClick={() => mixpanel.track("style", {
+    date: "now"
+  })}>
         Shop our latest sale styles
       </Link>
       <BsChevronRight />
