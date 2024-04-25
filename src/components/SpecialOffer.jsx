@@ -17,9 +17,7 @@ export default function SpecialOffer() {
         Up to 70% Off.
       </Text>
       <Link fontSize="14px" textDecoration="underline" onClick={() => {
-        mixpanel.track("latest_style", {
-          time: 'now'
-        });
+        
       }}>
         Shop our latest sale styles
       </Link>
