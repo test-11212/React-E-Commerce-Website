@@ -34,7 +34,11 @@ export default function Header() {
               py={{ base: "16px", md: "0", xl: "0" }}
             >
               <Link to={ROUTES.HOME}>
-                <Image src={logo} alt="logo" w="full" h="full" />
+                <Image src={logo} alt="logo" w="full" h="full" onClick={() => {
+    mixpanel.track("logo_clicked", {
+    tmie: "nowwqd"
+  })
+}} />
               </Link>
               <Box
                 position="relative"
