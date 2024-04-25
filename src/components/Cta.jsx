@@ -4,6 +4,7 @@ import img from "../assets/images/icons/cta.png";
 import appStore from "../assets/images/icons/appStore.png";
 import googlePlay from "../assets/images/icons/googlePlay.png";
 import { Link } from "react-router-dom";
+import mixpanel from "mixpanel-browser";
 export default function Cta() {
   return (
     <Box
@@ -32,6 +33,11 @@ export default function Cta() {
               fontWeight="700"
               color="var(--light)"
               textAlign={{ base: "center", md: "start", xl: "start" }}
+              onClick={() => {
+                mixpanel.track("banner_clicked", {
+                  user: "ansh", tme: "now"
+                });
+              }}
             >
               Enjoy mobile shopping with our Createx Store App!
             </Text>
