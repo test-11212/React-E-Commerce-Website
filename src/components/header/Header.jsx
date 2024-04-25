@@ -35,9 +35,6 @@ export default function Header() {
             >
               <Link to={ROUTES.HOME}>
                 <Image src={logo} alt="logo" w="full" h="full" onClick={() => {
-    mixpanel.track("logo_clicked", {
-    tmie: "nowwqd"
-  })
 }} />
               </Link>
               <Box
