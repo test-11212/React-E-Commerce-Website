@@ -36,7 +36,7 @@ export default function Topbar() {
             color="var(--lightTextColor4)"
             fontSize={{ base: "12px", md: "14px", xl: "16px" }}
             onClick={() => {
-              mixpanel.track("Contact Us Clicked", {
+              mixpanel.track("cotact_us_clicked", {
                 Location: "Topbar",
                 date: new Date().toISOString(),
               });
@@ -55,7 +55,7 @@ export default function Topbar() {
               <Text
                 onClick={() => {
                   onLoginOpen();
-                  mixpanel.track("Login Button Clicked", {
+                  mixpanel.track("login_button_clicked", {
                     Location: "Topbar",
                     date: new Date().toISOString(),
                   });
@@ -89,7 +89,7 @@ export default function Topbar() {
               <Text
                 onClick={() => {
                   onRegisterOpen();
-                  mixpanel.track("Register Button Clicked", {
+                  mixpanel.track("register_button_clicked", {
                     Location: "Topbar",
                     date: new Date().toISOString(),
                   });

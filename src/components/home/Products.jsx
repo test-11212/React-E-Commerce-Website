@@ -52,7 +52,7 @@ export default function Products({ category, sort }) {
               .map((product, id) => (
                 <Product
                   onClick={() => {
-                    mixpanel.track("Product Clicked", {
+                    mixpanel.track("product_clicked", {
                       product: product.name,
                       price: product.price,
                       category: product.category,

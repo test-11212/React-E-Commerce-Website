@@ -116,7 +116,7 @@ export default function Blog() {
             {blogsData.map((blog) => (
               <BlogItem
                 onClick={() => {
-                  mixpanel.track("Blog Clicked", {
+                  mixpanel.track("blog_clicked", {
                     BlogTitle: blog.title,
                     Category: blog.category,
                     Date: blog.date,

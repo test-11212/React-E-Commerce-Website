@@ -144,7 +144,7 @@ export default function Contact() {
 
                 <Flex
                   onClick={() => {
-                    mixpanel.track("Send Message Clicked", {
+                    mixpanel.track("send_message_clicked", {
                       Location: "Contact",
                       date: new Date().toISOString(),
                     });
