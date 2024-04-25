@@ -85,10 +85,6 @@ export default function Topbar() {
               <Text
                 onClick={() => {
                   onRegisterOpen();
-                  mixpanel.track("register_button_clicked", {
-                    Location: "Topbar",
-                    date: new Date().toISOString(),
-                  });
                 }}
                 _hover={{ cursor: "pointer" }}
               >
