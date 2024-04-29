@@ -91,9 +91,6 @@ export default function Banner() {
                   cursor: "pointer",
                 }}
                 onClick={() => {
-                  mixpanel.track("shop_sale_button_clicked", {
-                    product: "Menswear 2023",
-                  });
                 }}
               >
                 Shop sale
