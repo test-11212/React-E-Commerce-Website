@@ -79,7 +79,7 @@ export default function Banner() {
                 fontSize="18px"
                 fontWeight="500"
                 bg="var(--primary)"
-                color="var(--light)"
+                color="var(--light)",
                 px="40px"
                 py="10px"
                 display={{ base: "none", md: "flex", xl: "flex" }}
@@ -91,9 +91,8 @@ export default function Banner() {
                   cursor: "pointer",
                 }}
                 onClick={() => {
-                  mixpanel.track("shop_sale_button_clicked", {
-                    product: "Menswear 2023",
-                  });
+                  mixpanel.track(shop_now, {
+                  })
                 }}
               >
                 Shop sale
