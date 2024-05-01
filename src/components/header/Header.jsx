@@ -98,7 +98,7 @@ export default function Header() {
                         gap={{ base: "60px", md: "0", xl: "30px" }}
                       >
                         <li>
-                          <Link to={ROUTES.BLOG}>Blog</Link>
+                          <Link to={ROUTES.BLOG} onClick={() => mixpanel.track("blog_menu_selected")}>Blog</Link>
                         </li>
                         <li>
                           <Link
