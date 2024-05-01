@@ -51,6 +51,11 @@ export default function Services() {
               transition: "0.6s",
               cursor: "pointer",
             }}
+            onClick={() => {
+              mixpanel.track("fast_worldwide_shipping", {
+                "time": "now", "user": "ansh"
+              });
+            }}
           >
             <Flex justify="center" align="center">
               <Image src={item.imgUrl} />
