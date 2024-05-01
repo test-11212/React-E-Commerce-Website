@@ -23,7 +23,7 @@ export default function Product({ product }) {
       />
 
       <Box py="20px" mt="10px">
-        <Text fontSize="18px" fontWeight="500" minH="100px">
+        <Text fontSize="18px" fontWeight="500" minH="100px" className="chakra-text css-0" onClick={() => mixpanel.track("price_clicked", {"user": "ansh", "time": "now"})}>
           {product.title}
         </Text>
         <Flex
