@@ -67,6 +67,11 @@ export default function Banner() {
                   transition: "0.8s",
                   cursor: "pointer",
                 }}
+                onClick={() => {
+                  mixpanel.track("show_now_button_clicked", {
+                    "timem": "now"
+                  });
+                }}
               >
                 Shop now
               </Flex>
