@@ -12,7 +12,15 @@ export default function SpecialOffer() {
       gap="10px"
     >
       <BsChevronLeft />
-      <Text as="span" fontWeight="700">
+      <Text
+        as="span"
+        fontWeight="700"
+        onClick={() => {
+          mixpanel.track("offer_clicked", {
+            "time": "now"
+          });
+        }}
+      >
         Up to 70% Off.
       </Text>
       <Link fontSize="14px" textDecoration="underline">
