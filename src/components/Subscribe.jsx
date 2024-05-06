@@ -49,10 +49,16 @@ export default function Subscribe() {
                   borderRadius="4px"
                   _hover={{ cursor: "pointer" }}
                   onClick={() => {
-                    mixpanel.track("subscribe_clicked", {
-                      Location: "Subscribe",
-                      date: new Date().toISOString(),
-                    });
+                    mixpanel.track(
+                      "subscribe_clicked",
+                      {
+                        Location: "Subscribe",
+                        date: new Date().toISOString(),
+                      },
+                      (e) => {
+                        console.log(e);
+                      }
+                    );
                   }}
                 >
                   Subscribe

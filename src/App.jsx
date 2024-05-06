@@ -1,21 +1,22 @@
+import mixpanel from "mixpanel-browser";
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import { ROUTES } from "./utils/routes";
-import "slick-carousel/slick/slick.css";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "slick-carousel/slick/slick-theme.css";
-import Details from "./pages/Details";
-import ShoppingCart from "./pages/ShoppingCart";
+import "slick-carousel/slick/slick.css";
 import Footer from "./components/Footer";
 import Header from "./components/header/Header";
-import Contact from "./pages/Contact";
-import Stores from "./pages/Stores";
-import FAQ from "./pages/FAQ";
+import About from "./pages/About";
 import Blog from "./pages/Blog";
 import BlogDetails from "./pages/BlogDetails";
+import Contact from "./pages/Contact";
+import Details from "./pages/Details";
+import FAQ from "./pages/FAQ";
+import Home from "./pages/Home";
+import ShoppingCart from "./pages/ShoppingCart";
+import Stores from "./pages/Stores";
+import { ROUTES } from "./utils/routes";
 export default function App() {
+  mixpanel.init(import.meta.env["VITE_MIXPANEL_TOKEN"]);
   return (
     <Router>
       <Header />
