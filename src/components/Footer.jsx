@@ -18,6 +18,8 @@ import { AiOutlineInstagram, AiOutlineTwitter } from "react-icons/ai";
 import appStore from "../assets/images/icons/appStore.png";
 import googlePlay from "../assets/images/icons/googlePlay.png";
 import heartIcon from "../assets/images/icons/heartIcon.png";
+import mixpanel from "mixpanel-browser";
+
 export default function Footer() {
   return (
     <Box bg="var(--darkBgColor)">
@@ -151,7 +153,11 @@ export default function Footer() {
             </Text>
             <Flex gap="20px">
               <Box maxW="full">
-                <Image src={appStore} w="full" h="full" />
+                <Image src={appStore} w="full" h="full" onClick={() => {
+                  mixpanel.track("play_store_clicked", {
+                    "time": "now"
+                  });
+                }} />
               </Box>
               <Box>
                 <Image src={googlePlay} w="full" h="full" />
