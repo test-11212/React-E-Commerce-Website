@@ -41,7 +41,10 @@ export default function Header() {
                 ml={{ base: "0", md: "0", xl: "22px" }}
                 mr={{ base: "30px", md: "0", xl: "0" }}
                 display={{ base: "block", md: "none", xl: "none" }}
-                onClick={() => navigate("cart")}
+                onClick={() => {
+                  mixpanel.track("cart_number");
+                  navigate("cart");
+                }}
                 _hover={{ cursor: "pointer" }}
               >
                 <AiOutlineShoppingCart size={30} />
