@@ -13,6 +13,8 @@ import {
   BiLogoPinterestAlt,
 } from "react-icons/bi";
 import { addToCart } from "../../redux/cartSlice";
+import mixpanel from "mixpanel-browser";
+
 export default function ProductDetails({ productDetail }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
@@ -34,6 +36,9 @@ export default function ProductDetails({ productDetail }) {
         quantity: quantity,
       })
     );
+    mixpanel.track("Add_to_Cart_Clicked", {
+      Page: "Product_Page"
+    });
   };
 
   return (
