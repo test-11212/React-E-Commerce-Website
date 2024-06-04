@@ -102,13 +102,28 @@ export default function Header() {
                         </li>
                         <li>
                           <Link
+                            onClick={() => {
+                              mixpanel.track("faq_clicked", {
+                                Location: "Header",
+                                date: new Date().toISOString(),
+                              });
+                            }}
                             to={ROUTES.FAG}
                           >
                             FAQ
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link
+                            to={ROUTES.STORES}
+                            onClick={() => {
+                              mixpanel.track("Stores_Clicked_on_Header", {
+                                Added: "After_merging",
+                              });
+                            }}
+                          >
+                            Stores
+                          </Link>
                         </li>
                         <li>
                           <Link to={ROUTES.CONTACT}>Contacts</Link>
