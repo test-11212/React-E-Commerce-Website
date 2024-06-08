@@ -102,6 +102,12 @@ export default function Header() {
                         </li>
                         <li>
                           <Link
+                            onClick={() => {
+                              mixpanel.track("faq_clicked", {
+                                Location: "Header",
+                                date: new Date().toISOString(),
+                              });
+                            }}
                             to={ROUTES.FAG}
                           >
                             FAQ
@@ -111,7 +117,19 @@ export default function Header() {
                           <Link to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.CONTACT}>Contacts</Link>
+                          <a
+                            data-iterate="src/components/header/Header.jsx"
+                            iterate-id="d32e6b6b-b37f-484f-b55e-7d8d6476049b"
+                            href="/contact"
+                            class=""
+                            onClick={() => {
+                              mixpanel.track("Contacts_clicked", {
+                                Page: "Home",
+                              });
+                            }}
+                          >
+                            Contacts
+                          </a>
                         </li>
                       </Flex>
                     </ul>
