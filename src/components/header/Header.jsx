@@ -114,22 +114,19 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
-                        </li>
-                        <li>
-                          <a
-                            data-iterate="src/components/header/Header.jsx"
-                            iterate-id="d32e6b6b-b37f-484f-b55e-7d8d6476049b"
-                            href="/contact"
-                            class=""
+                          <Link
+                            to={ROUTES.STORES}
                             onClick={() => {
-                              mixpanel.track("Contacts_clicked", {
-                                try: "me",
+                              mixpanel.track("Stores_Clicked", {
+                                Page: "Home_page_new",
                               });
                             }}
                           >
-                            Contacts
-                          </a>
+                            Stores
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to={ROUTES.CONTACT}>Contacts</Link>
                         </li>
                       </Flex>
                     </ul>
