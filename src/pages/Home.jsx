@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, createContext } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Banner from '../components/home/Banner';
 import Brends from '../components/home/Brends';
 import { Box, Container, Flex } from '@chakra-ui/react';
@@ -10,19 +10,16 @@ import Services from '../components/Services';
 import Social from '../components/Social';
 import Cta from '../components/Cta';
 
-export const IterateContext = createContext(null);
-
 export default function Home() {
   const [sort, setSort] = useState('');
   const [category, setCategory] = useState('');
 
   const setDataAttributes = (ref, dataIterate, iterateId) => {
-    console.log('🍌',ref.current)
     if (ref.current) {
       ref.current.setAttribute('riki', dataIterate);
       ref.current.setAttribute('mlx', iterateId);
-      // ref.current.riki = dataIterate;
-      // ref.current.saksham = iterateId;
+      ref.current.riki = dataIterate
+      ref.current.saksham = iterateId
     }
   };
 
@@ -30,7 +27,7 @@ export default function Home() {
 
   useEffect(() => {
     setDataAttributes(lolref, 'voila', 'this is added via refs');
-  }, []);
+  }, [lolref]);
 
   return (
     <>
@@ -61,9 +58,7 @@ export default function Home() {
               <Category setCategory={setCategory} />
             </Box>
             <Flex w="full" align="center" justify="center">
-              <IterateContext.Provider value={lolref}>
-                <Products category={category} sort={sort} />
-              </IterateContext.Provider>
+              <Products category={category} sort={sort} ref={lolref}/>
             </Flex>
           </Flex>
         </Box>

@@ -1,15 +1,14 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
-import React, { useContext } from 'react';
+import React, { forwardRef } from 'react';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { IterateContext } from '../../pages/Home';
 
-export default function Product({ product }) {
+const Product = forwardRef(({ product }, ref) => {
   const navigate = useNavigate();
-  const lolref = useContext(IterateContext);
-  console.log('🚤', lolref.current)
+  console.log('from product.jsx', ref.current)
+
   return (
-    <div ref={lolref} data-lol="data lol lol">
+    <div data-riki="lol" ref={ref}>
       <Box
         onClick={() => navigate(`products/${product.id}`)}
         w="full"
@@ -56,4 +55,6 @@ export default function Product({ product }) {
       </Box>
     </div>
   );
-}
+})
+export default Product
+// export default forwardRef(Product);
