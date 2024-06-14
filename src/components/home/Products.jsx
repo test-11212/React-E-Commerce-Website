@@ -1,13 +1,13 @@
-import { Grid } from "@chakra-ui/react";
-import mixpanel from "mixpanel-browser";
-import React, { useEffect, useState } from "react";
-import ReactPaginate from "react-paginate";
-import { useDispatch, useSelector } from "react-redux";
-import { getProductCategory, getProducts } from "../../redux/productSlice";
-import Loading from "../Loading";
-import Product from "./Product";
+import { Grid } from '@chakra-ui/react';
+import mixpanel from 'mixpanel-browser';
+import React, { useContext, useEffect, useState } from 'react';
+import ReactPaginate from 'react-paginate';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProductCategory, getProducts } from '../../redux/productSlice';
+import Loading from '../Loading';
+import Product from './Product';
 
-export default function Products({ category, sort }) {
+const Products = ({ category, sort }, ref) => {
   const dispatch = useDispatch();
   const { products, productsStatus } = useSelector((state) => state.products);
 
@@ -31,37 +31,31 @@ export default function Products({ category, sort }) {
   };
 
   return (
-    <div>
-      {productsStatus === "LOADING" ? (
+    <div data-rick="sl">
+      {productsStatus === 'LOADING' ? (
         <Loading />
       ) : (
         <>
           <Grid
             templateColumns={{
-              base: "repeat(1, 1fr)",
-              md: "repeat(2, 1fr)",
-              lg: "repeat(3, 1fr)",
+              base: 'repeat(1, 1fr)',
+              md: 'repeat(2, 1fr)',
+              lg: 'repeat(3, 1fr)',
             }}
             gap={6}
             w="full"
           >
-            {currentItems
-              ?.sort((a, b) =>
-                sort === "increment" ? a.price - b.price : b.price - a.price
-              )
-              .map((product, id) => (
-                <Product
-                  onClick={() => {
-                    mixpanel.track("product_clicked", {
-                      product: product.name,
-                      price: product.price,
-                      category: product.category,
-                    });
-                  }}
-                  key={id}
-                  product={product}
-                />
-              ))}
+            <Product
+              onClick={() => {
+                mixpanel.track('product_clicked', {
+                  product: 'lol',
+                  price: 'lol',
+                  category: 'lol',
+                });
+              }}
+              
+              product='lol'
+            />
           </Grid>
           <ReactPaginate
             className="paginate"
@@ -77,4 +71,6 @@ export default function Products({ category, sort }) {
       )}
     </div>
   );
-}
+};
+
+export default Products;
