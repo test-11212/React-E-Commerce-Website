@@ -98,7 +98,7 @@ export default function Header() {
                         gap={{ base: "60px", md: "0", xl: "30px" }}
                       >
                         <li>
-                          <Link to={ROUTES.BLOG}>Blog</Link>
+                          <Link to={ROUTES.BLOG} onClick={() => { mixpanel.track('blog_clicked', { Location: 'Header', Date: new Date().toISOString() }); }}>Blog</Link>
                         </li>
                         <li>
                           <Link
@@ -117,7 +117,7 @@ export default function Header() {
                           <Link to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.CONTACT}>Contacts</Link>
+                          <Link to={ROUTES.CONTACT} onClick={() => { mixpanel.track('contacts_clicked', { cart: 'cart' }); }}>Contacts</Link>
                         </li>
                       </Flex>
                     </ul>
