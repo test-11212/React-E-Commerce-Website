@@ -1,8 +1,10 @@
 import { Image, Stack, Text, Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineComment } from "react-icons/ai";
+let Itr_to = null;
 import { Link } from "react-router-dom";
 export default function BlogItem({ blog }) {
+    Itr_to = blog;
   return (
     <Link to={`/blog/${blog.id}`}>
       <Stack gap="16px">
@@ -31,6 +33,7 @@ export default function BlogItem({ blog }) {
         </Text>
         <Text color="var(--darkTextColor2)">{blog.content}</Text>
       </Stack>
-    </Link>
+    </Text> </Stack> </Link> );
+    export { Itr_to };
   );
 }
