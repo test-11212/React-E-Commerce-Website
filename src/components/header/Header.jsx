@@ -98,7 +98,7 @@ export default function Header() {
                         gap={{ base: "60px", md: "0", xl: "30px" }}
                       >
                         <li>
-                          <Link to={ROUTES.BLOG}>Blog</Link>
+                          <Link onClick={() => { mixpanel.track('blog_clicked', { date: new Date().toISOString(), user_location: this.props.userLocation || 'unknown' }); }} to={ROUTES.BLOG}>Blog</Link>
                         </li>
                         <li>
                           <Link
@@ -114,7 +114,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link onClick={() => { mixpanel.track('stores_clicked', { is_page_homepage: determineIfHomepage(), previous_clicks: getPreviousClicksCount() }); }} to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
                           <Link to={ROUTES.CONTACT}>Contacts</Link>
