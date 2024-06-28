@@ -8,6 +8,8 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.png";
 import { getCartTotal } from "../../redux/cartSlice";
 import { ROUTES } from "../../utils/routes";
+const Itr_ROUTES_STORES = ROUTES.STORES;
+export { Itr_ROUTES_STORES };
 import SpecialOffer from "../SpecialOffer";
 import Topbar from "./Topbar";
 export default function Header() {
@@ -114,7 +116,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link to={ROUTES.STORES} onClick={() => { mixpanel.track('nav_link_clicked', { place: 'navbar', text_link: 'Stores' }); }}>Stores</Link>
                         </li>
                         <li>
                           <Link to={ROUTES.CONTACT}>Contacts</Link>
