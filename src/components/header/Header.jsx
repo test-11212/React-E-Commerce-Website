@@ -114,7 +114,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link onClick={() => { mixpanel.track('stores_clicked', { is_page_homepage: deriveOrStateThisValue(), previous_clicks: 'were made', cart: carts }); }} to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
                           <Link to={ROUTES.CONTACT}>Contacts</Link>
