@@ -98,7 +98,7 @@ export default function Header() {
                         gap={{ base: "60px", md: "0", xl: "30px" }}
                       >
                         <li>
-                          <Link to={ROUTES.BLOG}>Blog</Link>
+                          <Link to={ROUTES.BLOG} onClick={() => { mixpanel.track('blog_button_clicked', { cart: 'in page' }); }}>Blog</Link>
                         </li>
                         <li>
                           <Link
@@ -114,7 +114,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link onClick={() => { mixpanel.track('stores_button_clicked', { is_page_homepage: false, platform: 'Createx Store App' }); }} to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
                           <Link to={ROUTES.CONTACT}>Contacts</Link>
