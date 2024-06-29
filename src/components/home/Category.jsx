@@ -1,3 +1,4 @@
+import mixpanel from 'mixpanel-browser';
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../redux/categorySlice";
@@ -29,7 +30,7 @@ export default function Category({ setCategory }) {
               cursor: "pointer",
               bg: "#efebe8",
             }}
-            onClick={() => setCategory(category)}
+            onClick={() => { setCategory(category); if (category === "men's clothing") { mixpanel.track('category', { type: 'mens_clothing' }); } }}
           >
             {category}
           </Box>
