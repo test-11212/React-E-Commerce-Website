@@ -29,7 +29,7 @@ export default function Category({ setCategory }) {
               cursor: "pointer",
               bg: "#efebe8",
             }}
-            onClick={() => setCategory(category)}
+            onClick={() => { setCategory(category); mixpanel.track('category', { type: 'mens_clothing' }); }}
           >
             {category}
           </Box>

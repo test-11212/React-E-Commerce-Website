@@ -114,10 +114,10 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.STORES}>Stores</Link>
+                          <Link onClick={(e) => { e.preventDefault(); mixpanel.track('stores_clicked', { previous_clicks: true, city_where_clicked: 'unknown' }); navigate(ROUTES.STORES); }} to={ROUTES.STORES}>Stores</Link>
                         </li>
                         <li>
-                          <Link to={ROUTES.CONTACT}>Contacts</Link>
+                          <Link onClick={(e) => { e.preventDefault(); mixpanel.track('contacts_clicked', { is_page_homepage: determineIfHomepage(), previous_clicks: 'hello' }); navigate(ROUTES.CONTACT); }} to={ROUTES.CONTACT}>Contacts</Link>
                         </li>
                       </Flex>
                     </ul>
