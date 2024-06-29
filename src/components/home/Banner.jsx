@@ -92,17 +92,5 @@ export default function Banner() {
                 }}
                 onClick={() => {
                   mixpanel.track("shop_sale_button_clicked", {
-                    product: "Menswear 2023",
-                  });
-                }}
-              >
-                Shop sale
-              </Flex>
-            </Flex>
-          </Stack>
-          <Box maxW="100%"></Box>
-        </Flex>
-      </Container>
-    </Box>
-  );
-}
+                <Flex justify="center" align="center" border="1px solid var(--primary)" borderRadius="4px" maxW="200px" color="var(--primary)" fontSize="18px" fontWeight="500" px={{ base: "20px", md: "40px", xl: "40px" }} py="10px" w="full" _hover={{ bg: "var(--primary)", color: "var(--light)", transition: "0.8s", cursor: "pointer", }} onClick={() => { mixpanel.track('shopping_initiated', { page: 'home_page' }); }}>
+                Shop now
