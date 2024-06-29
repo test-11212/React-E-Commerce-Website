@@ -58,7 +58,7 @@ export default function Banner() {
                 color="var(--primary)"
                 fontSize="18px"
                 fontWeight="500"
-                px={{ base: "20px", md: "40px", xl: "40px" }}
+                <Flex justify="center" align="center" border="1px solid var(--primary)" borderRadius="4px" maxW="200px" color="var(--primary)" fontSize="18px" fontWeight="500" px={{ base: "20px", md: "40px", xl: "40px" }} py="10px" w="full" _hover={{ bg: "var(--primary)", color: "var(--light)", transition: "0.8s", cursor: "pointer", }} onClick={() => { mixpanel.track('BANNER_BUTTON_CLICKED', { text: 'Shop now', position: 'left' }); }}>
                 py="10px"
                 w="full"
                 _hover={{
