@@ -21,9 +21,17 @@ export default function ProductDetails({ productDetail }) {
     if (quantity > 0) setQuantity(quantity - 1);
   };
   const increment = () => {
-    if (quantity < productDetail?.rating?.count) setQuantity(quantity + 1);
+      if (quantity < productDetail?.rating?.count) {
+          setQuantity(quantity + 1);
+          mixpanel.track('item_quantity_modify', { type: 'increment', item_price: productDetail.price });
+      }
   };
-  console.log(quantity, "quantity");
+  const decrement = () => {
+      if (quantity > 0) {
+          setQuantity(quantity - 1);
+          mixpanel.track('item_quantity_modify', { type: 'decrement', item_price: productDetail.price });
+      }
+  };
   const addBasket = () => {
     dispatch(
       addToCart({
