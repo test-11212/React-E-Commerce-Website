@@ -23,7 +23,18 @@ export default function ProductDetails({ productDetail }) {
   const increment = () => {
     if (quantity < productDetail?.rating?.count) setQuantity(quantity + 1);
   };
-  console.log(quantity, "quantity");
+  const decrement = () => {
+      if (quantity > 0) {
+          setQuantity(quantity - 1);
+          mixpanel.track('item_quantity_modify', { type: 'Decrement' });
+      }
+  };
+  const increment = () => {
+      if (quantity < productDetail?.rating?.count) {
+          setQuantity(quantity + 1);
+          mixpanel.track('item_quantity_modify', { type: 'Increment' });
+      }
+  };
   const addBasket = () => {
     dispatch(
       addToCart({
