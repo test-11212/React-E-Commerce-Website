@@ -1,3 +1,4 @@
+import mixpanel from 'mixpanel-browser';
 import { Image, Text, Flex, Container, Grid, Stack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -25,15 +26,16 @@ export default function ProductDetails({ productDetail }) {
   };
   console.log(quantity, "quantity");
   const addBasket = () => {
-    dispatch(
-      addToCart({
-        id: productDetail?.id,
-        title: productDetail?.title,
-        price: productDetail?.price,
-        image: productDetail?.image,
-        quantity: quantity,
-      })
-    );
+dispatch(
+        addToCart({
+          id: productDetail?.id,
+          title: productDetail?.title,
+          price: productDetail?.price,
+          image: productDetail?.image,
+          quantity: quantity,
+        })
+      );
+      mixpanel.track('add_to_cart_clicked', { color: 'dark green', item_price: productDetail.price });
   };
 
   return (
