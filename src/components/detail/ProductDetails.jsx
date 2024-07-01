@@ -1,3 +1,4 @@
+import mixpanel from 'mixpanel-browser';
 import { Image, Text, Flex, Container, Grid, Stack } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -21,7 +22,10 @@ export default function ProductDetails({ productDetail }) {
     if (quantity > 0) setQuantity(quantity - 1);
   };
   const increment = () => {
-    if (quantity < productDetail?.rating?.count) setQuantity(quantity + 1);
+    if (quantity < productDetail?.rating?.count) {
+        setQuantity(quantity + 1);
+        mixpanel.track('item_quantity_modify', { type: 'increment' });
+    }
   };
   console.log(quantity, "quantity");
   const addBasket = () => {
