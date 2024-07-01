@@ -1,4 +1,5 @@
 import { Image, Text, Flex, Container, Grid, Stack } from "@chakra-ui/react";
+import mixpanel from 'mixpanel-browser';
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import stroke from "../../assets/images/icons/stroke.png";
@@ -18,10 +19,16 @@ export default function ProductDetails({ productDetail }) {
   const [quantity, setQuantity] = useState(0);
 
   const decrement = () => {
-    if (quantity > 0) setQuantity(quantity - 1);
+    if (quantity > 0) {
+        setQuantity(quantity - 1);
+        mixpanel.track('item_quantity_modify', {'type': 'decrement'});
+    }
   };
   const increment = () => {
-    if (quantity < productDetail?.rating?.count) setQuantity(quantity + 1);
+    if (quantity < productDetail?.rating?.count) {
+        setQuantity(quantity + 1);
+        mixpanel.track('item_quantity_modify', {'type': 'increment'});
+    }
   };
   console.log(quantity, "quantity");
   const addBasket = () => {
