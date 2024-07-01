@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import mixpanel from 'mixpanel-browser';
 import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../../redux/categorySlice";
 import { Box, Text } from "@chakra-ui/react";
@@ -29,7 +30,7 @@ export default function Category({ setCategory }) {
               cursor: "pointer",
               bg: "#efebe8",
             }}
-            onClick={() => setCategory(category)}
+            onClick={() => { setCategory(category); mixpanel.track('category_clicked', { position: 'left' }); }}
           >
             {category}
           </Box>
